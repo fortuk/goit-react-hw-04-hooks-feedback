@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, clickFeedback }) => {
-    return options.map((option) => ( <
-        button key = { option }
-        className = { styles.btn }
-        onClick = {
-            () => clickFeedback(option)
-        } > { makeFirstLetterBig(option) } <
-        /button>
+    return options.map((option) => (
+        <button
+            type="button"
+            onClick={() => addFeedback(option)}
+            className={s.btn}
+            key={option}
+        >
+            {makeFirstLetterBig(option)}
+        </button>
     ));
-};
+}
 
 function makeFirstLetterBig(str) {
     if (!str) return str;
