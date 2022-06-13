@@ -2,23 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ options, clickFeedback }) => {
-    return options.map((option) => (
+const FeedbackButton = ({ feedback, clickFeedback }) => {
+    return (
         <button
-            type="button"
-            onClick={() => clickFeedback(option)}
             className={styles.btn}
-            key={option}
+            type="button"
+            data-feedback={feedback}
+            key={feedback}
+            onClick={clickFeedback}
         >
-            {makeFirstLetterBig(option)}
+            {feedback}
         </button>
-    ));
-}
+    );
+};
 
-function makeFirstLetterBig(str) {
-    if (!str) return str;
-    return str[0].toUpperCase() + str.slice(1);
-}
+const FeedbackOptions = ({ options, clickFeedback }) => {
+    return options.map(option =>
+        FeedbackButton({ feedback: option, clickFeedback }),
+    );
+};
 
 FeedbackOptions.propTypes = {
     options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
