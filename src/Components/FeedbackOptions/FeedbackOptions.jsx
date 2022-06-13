@@ -6,8 +6,8 @@ const FeedbackOptions = ({ options, clickFeedback }) => {
     return options.map((option) => (
         <button
             type="button"
-            onClick={() => addFeedback(option)}
-            className={s.btn}
+            onClick={() => clickFeedback(option)}
+            className={styles.btn}
             key={option}
         >
             {makeFirstLetterBig(option)}
