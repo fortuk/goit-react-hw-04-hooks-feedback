@@ -2,8 +2,7 @@ import { React, useState } from 'react';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 import Section from './Section/Section';
-import { FEEDBACK_OPTIONS } from './data/constans';
-import s from '../Components/App.module.css'
+import s from '../components/App.module.css'
 
 export default function App() {
     const [good, setGood] = useState(0);
@@ -44,7 +43,7 @@ export default function App() {
         <div className={s.app}>
             <Section title="Please leave feedback">
                 <FeedbackOptions
-                    options={FEEDBACK_OPTIONS}
+                    options={Object.keys({ good, neutral, bad })}
                     onLeaveFeedback={handleFeedback}
                 />
             </Section>
