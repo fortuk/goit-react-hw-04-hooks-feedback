@@ -10,7 +10,6 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
                 <button
                     className={option.charAt(0).toUpperCase() + option.slice(1) + ` Btn`}
                     type="button"
-                    data-feedback={feedback}
                     key={option}
                     onClick={() => onLeaveFeedback(option)}
                 >
